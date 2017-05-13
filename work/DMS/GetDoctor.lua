@@ -64,7 +64,9 @@ local function rowTouch(event)
     end
         
         mytextDocID = display.newText("Doctor ID : "..resp[event.row.index-1]["DoctorID"],cx,320,"Arial",20)
+        mytextDocID:setTextColor(0/255,0/255,0/255)
         mytextDocname = display.newText("Doctor Name : "..resp[event.row.index-1]["DocName"],cx,360,"Arial",20)
+        mytextDocname:setTextColor(0/255,0/255,0/255)
         composer.setVariable("docIDD",resp[event.row.index-1]["DoctorID"])
     end
     
