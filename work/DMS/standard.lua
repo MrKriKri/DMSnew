@@ -9,7 +9,9 @@ local loinstatus
 
 --------------------------------------------------------------------
 function gotoRegis(event)
+	if(event.phase=="ended")then
 	composer.gotoScene("regis1")
+end
 end
 --------------------------------------------------------------------
 function gotoInside(event)
@@ -87,11 +89,12 @@ function scene:show(event)
 		    --onEvent = gotoRegis,
 		    defaultFile = "Register.png" ,
 		    width = 80,
-		    height = 80
+		    height = 80,
+		    onEvent = gotoRegis
 		  }
 		)
 		btnLogin:addEventListener("touch",gotoInside)
-		btnRegis:addEventListener("touch",gotoRegis)
+		--btnRegis:addEventListener("touch",gotoRegis)
 	elseif(phase == "did") then
 		print("Scene #1 : show (did)")
 		

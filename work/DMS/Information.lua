@@ -2,47 +2,47 @@ local composer = require("composer")
 local scene = composer.newScene()
 local widget = require("widget")
 
-function gotoMenu(event)
+local function gotoMenu(event)
 	composer.gotoScene("menu1")
 end
 
-function gotoInfor1(event)
+local function gotoInfor1(event)
 	composer.gotoScene("infor1")
 end
 
-function gotoInfor2(event)
+local function gotoInfor2(event)
 	composer.gotoScene("Infor2")
 end
 
-function gotoInfor3(event)
+local function gotoInfor3(event)
 	composer.gotoScene("Infor3")
 end
 
-function gotoInfor4(event)
+local function gotoInfor4(event)
 	composer.gotoScene("Infor4")
 end
 
-function gotoInfor5(event)
+local function gotoInfor5(event)
 	composer.gotoScene("Infor5")
 end
 
-function gotoInfor6(event)
+local function gotoInfor6(event)
 	composer.gotoScene("Infor6")
 end
 
-function gotoInfor7(event)
+local function gotoInfor7(event)
 	composer.gotoScene("Infor7")
 end
 
-function gotoInfor8(event)
+local function gotoInfor8(event)
 	composer.gotoScene("Infor8")
 end
 
-function gotoInfor9(event)
+local function gotoInfor9(event)
 	composer.gotoScene("Infor9")
 end
 
-function gotoInfor10(event)
+local function gotoInfor10(event)
 	composer.gotoScene("Infor10")
 end
 
@@ -120,6 +120,18 @@ function scene:hide(evevt)
 	local sceneGroup = self.view
 	local phase = evevt.phase
 	if(phase == "will") then
+
+		myText1:removeEventListener("touch",gotoInfor1)
+		myText2:removeEventListener("touch",gotoInfor2)
+		myText3:removeEventListener("touch",gotoInfor3)
+		myText4:removeEventListener("touch",gotoInfor4)
+		myText5:removeEventListener("touch",gotoInfor5)
+		myText6:removeEventListener("touch",gotoInfor6)
+		myText7:removeEventListener("touch",gotoInfor7)
+		myText8:removeEventListener("touch",gotoInfor8)
+		myText9:removeEventListener("touch",gotoInfor9)
+		myText10:removeEventListener("touch",gotoInfor10)	
+		myText11:removeEventListener("touch",gotoMenu)
 
 	
 		myText1:removeSelf()

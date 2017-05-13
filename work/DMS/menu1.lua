@@ -2,23 +2,33 @@ local composer = require("composer")
 local scene = composer.newScene()
 local widget = require("widget")
 
-function gotoProfile(event)
+local function gotoProfile(event)
+	if(event.phase=="ended")then
 	composer.gotoScene("menu2")
+end	
 end
 
-function gotoCalculate(event)
+local function gotoCalculate(event)
+	if(event.phase=="ended")then
 	composer.gotoScene("calculatesugar")
 end
+end
 
-function gotoGraph(event)
+local function gotoGraph(event)
+	if(event.phase=="ended")then
 	composer.gotoScene("Graph")
 end
+end
 
-function gotoInformation(event)
+local function gotoInformation(event)
+	if(event.phase=="ended")then
 	composer.gotoScene("Information")
 end
-function gotoFood(event)
+end
+local function gotoFood(event)
+	if(event.phase=="ended")then
 	composer.gotoScene("foodguide")
+end
 end
 
 
@@ -49,7 +59,8 @@ ProFile = widget.newButton(
 		    --onEvent = ,
 		    defaultFile = "iconProfile.png" ,
 		    width = 50,
-		    height = 50
+		    height = 50,
+		    onEvent = gotoProfile
 		  }
 		)
 		
@@ -60,7 +71,8 @@ Analysis = widget.newButton(
 		    --onEvent = ,
 		    defaultFile = "iconAnaly.png" ,
 		    width = 110,
-		    height = 110
+		    height = 110,
+		    onEvent = gotoCalculate
 		  }
 		)
 
@@ -70,7 +82,8 @@ Graphs = widget.newButton(
 		    --onEvent = ,
 		    defaultFile = "iconGrahp.png" ,
 		    width = 90,
-		    height = 90
+		    height = 90,
+		    onEvent = gotoGraph
 		  }
 		)
 
@@ -80,7 +93,8 @@ Foodguide = widget.newButton(
 		    --onEvent = ,
 		    defaultFile = "iconFood.png" ,
 		    width = 90,
-		    height = 90
+		    height = 90,
+		    onEvent = gotoFood
 		  }
 		)
 
@@ -90,15 +104,16 @@ Information = widget.newButton(
 		    --onEvent = ,
 		    defaultFile = "iconInfor.png" ,
 		    width = 90,
-		    height = 90
+		    height = 90,
+		    onEvent = gotoInformation
 		  }
 		)
 
-Foodguide:addEventListener("touch",gotoFood)
-Graphs:addEventListener("touch",gotoGraph)		
-ProFile:addEventListener("touch",gotoProfile)
-Analysis:addEventListener("touch",gotoCalculate)
-Information:addEventListener("touch",gotoInformation)
+--Foodguide:addEventListener("touch",gotoFood)
+--Graphs:addEventListener("touch",gotoGraph)		
+--ProFile:addEventListener("touch",gotoProfile)
+--Analysis:addEventListener("touch",gotoCalculate)
+--Information:addEventListener("touch",gotoInformation)
 
 	elseif(phase == "did") then
 		print("Scene #1 : show (did)")
@@ -110,6 +125,13 @@ function scene:hide(evevt)
 	local sceneGroup = self.view
 	local phase = evevt.phase
 	if(phase == "will") then
+
+		Foodguide:removeEventListener("touch",gotoFood)
+		Graphs:removeEventListener("touch",gotoGraph)		
+		ProFile:removeEventListener("touch",gotoProfile)
+		Analysis:removeEventListener("touch",gotoCalculate)
+		Information:removeEventListener("touch",gotoInformation)
+
 
 		Analysis:removeSelf()
 		Graphs:removeSelf()
