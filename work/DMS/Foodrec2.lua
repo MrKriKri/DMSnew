@@ -47,6 +47,18 @@ function scene:hide(evevt)
 	local sceneGroup = self.view
 	local phase = evevt.phase
 	if(phase == "will") then
+		if not(textMeal==nil) then
+        textMeal:removeSelf()
+        textFood:removeSelf()
+        texttime:removeSelf()
+        textdate:removeSelf()
+        textamount:removeSelf()
+        textMeal = nil
+        textamount = nil
+        textFood = nil
+        texttime = nil
+        textdate = nil
+        end
 		myText:removeSelf()
 		myText6:removeSelf()
 		myText = nil
