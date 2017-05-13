@@ -37,7 +37,7 @@ function scene:show(event)
 		ground = display.newRect(cx,15,cw,60)
 		ground:setFillColor(0.4,0.4,0.4)
 
-		myText = display.newText(composer.getVariable("username"),215,15,"Arial",20)
+		myText = display.newText(composer.getVariable("username"),40,15,"Arial",20)
 		myText1 = display.newText("Analysis",185,120,"Arial",30)
 		myText2 = display.newText("Graphs",180,230,"Arial",30)
 		myText3 = display.newText("Food Guides",220,340,"Arial",30)
