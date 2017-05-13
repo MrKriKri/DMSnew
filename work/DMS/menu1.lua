@@ -17,6 +17,9 @@ end
 function gotoInformation(event)
 	composer.gotoScene("Information")
 end
+function gotoFood(event)
+	composer.gotoScene("foodguide")
+end
 
 
 function scene:create(event)
@@ -91,6 +94,7 @@ Information = widget.newButton(
 		  }
 		)
 
+Foodguide:addEventListener("touch",gotoFood)
 Graphs:addEventListener("touch",gotoGraph)		
 ProFile:addEventListener("touch",gotoProfile)
 Analysis:addEventListener("touch",gotoCalculate)
