@@ -18,29 +18,26 @@ function scene:show(event)
     local phase = event.phase
     if(phase == "will") then
         print("Scene #1 : show (will)")
+        myText6 = display.newText("Back",30,500,"Arial",20)
         database()
-        
+        myText6:addEventListener("touch",gotoMenuG)
     elseif(phase == "did") then
         print("Scene #1 : show (did)")
     
     end
 end
 
-myText1 = display.newText("Back",30,500,"Arial",20)
-myText1:setTextColor(0,0,0)
 
-
-
-myText1:addEventListener("touch",gotoMenuG)
 function scene:hide(evevt)
     local sceneGroup = self.view
     local phase = evevt.phase
     if(phase == "will") then
+    	myText6:removeEventListener("touch",gotoMenuG)
         tableView:removeSelf()
-        myText1:removeSelf()
+        myText6:removeSelf()
         tableView=nil
-        myText1=nil
-     
+        myText6=nil
+     	
         print("Scene #1 : hide (will)")
     elseif(phase == "did") then
         print("Scene #1 : hide (did)")

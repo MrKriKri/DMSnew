@@ -6,9 +6,9 @@ function gotoMenu(event)
 	composer.gotoScene("menu1")
 end
 
---function gotoProfile(event)
-	
---end
+function gotoProfile(event)
+	composer.gotoScene("view1")	
+end
 
 --function gotoEdit(event)
 	
@@ -60,7 +60,7 @@ ProFile = widget.newButton(
 		  }
 		)
 		
---myText1:addEventListener("touch",gotoProfile)
+myText1:addEventListener("touch",gotoProfile)
 --myText2:addEventListener("touch",gotoEdit)
 --myText3:addEventListener("touch",gotoReminder)
 myText4:addEventListener("touch",gotoFoodrec)

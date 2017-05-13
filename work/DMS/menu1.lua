@@ -2,22 +2,22 @@ local composer = require("composer")
 local scene = composer.newScene()
 local widget = require("widget")
 
-function gotoProfile(event)
+local function gotoProfile(event)
 	composer.gotoScene("menu2")
 end
 
-function gotoCalculate(event)
+local function gotoCalculate(event)
 	composer.gotoScene("calculatesugar")
 end
 
-function gotoGraph(event)
+local function gotoGraph(event)
 	composer.gotoScene("Graph")
 end
 
-function gotoInformation(event)
+local function gotoInformation(event)
 	composer.gotoScene("Information")
 end
-function gotoFood(event)
+local function gotoFood(event)
 	composer.gotoScene("foodguide")
 end
 
@@ -110,6 +110,11 @@ function scene:hide(evevt)
 	local sceneGroup = self.view
 	local phase = evevt.phase
 	if(phase == "will") then
+		Foodguide:removeEventListener("touch",gotoFood)
+		Graphs:removeEventListener("touch",gotoGraph)		
+		ProFile:removeEventListener("touch",gotoProfile)
+		Analysis:removeEventListener("touch",gotoCalculate)
+		Information:removeEventListener("touch",gotoInformation)
 
 		Analysis:removeSelf()
 		Graphs:removeSelf()
@@ -136,6 +141,8 @@ function scene:hide(evevt)
 		myText2 = nil
 		myText3 = nil
 		myText4 = nil
+
+
 
 		Runtime:removeEventListener("touch", screenTouched)
 		print("Scene #1 : hide (will)")
