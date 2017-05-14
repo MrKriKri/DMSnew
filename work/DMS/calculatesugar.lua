@@ -105,7 +105,7 @@ function scene:hide(event)
 	local phase = event.phase
 	if (phase == "will") then
 		--composer.setVariable("age", hTextField.text)
-		composer.setVariable("sugar", wTextField.text)
+		--composer.setVariable("sugar", wTextField.text)
 		--hTextField:removeEventListener("userInput", textFieldHandler)	
 		wTextField:removeEventListener("userInput", textFieldHandler)	
 		titleText:removeSelf()

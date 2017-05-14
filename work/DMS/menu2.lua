@@ -23,8 +23,23 @@ function gotoFoodrec(event)
 end
 
 function gotoLogout(event)
-	LogOut(checklogin)
-	
+	if(event.phase=="ended")then
+		LogOut(checklogin)
+		composer.setVariable("nowuser","")
+		composer.setVariable("username","")
+		composer.setVariable("UserIDLine","")
+
+		composer.setVariable("name","")
+		composer.setVariable("lname","")
+		composer.setVariable("idcard","")
+		composer.setVariable("birthdate","")
+		composer.setVariable("tel","")
+
+		composer.setVariable("docID","")
+		composer.setVariable("docname","")
+		composer.setVariable("docline","")
+		composer.setVariable("doctel","")
+	end
 end
 
 function scene:create(event)

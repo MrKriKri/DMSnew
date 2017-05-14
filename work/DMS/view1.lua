@@ -9,11 +9,11 @@ function scene:create(event)
 	print("Scene #1 : create")
 end
 
-local function Edit(event)
+--[[local function Edit(event)
 	if(event.phase=="ended")then
 	composer.gotoScene("view2")
 end
-end
+end]]--
 
 local function goback( event )
 	if(event.phase=="ended")then
@@ -50,7 +50,7 @@ function scene:show(event)
 
 		editprofile = display.newText("Edit Profile",260,500,"Arial",20)
 		editprofile:setTextColor(0, 0, 0)
-		editprofile:addEventListener("touch",Edit)
+		--editprofile:addEventListener("touch",Edit)
 
 
 ProFile = widget.newButton(
@@ -74,7 +74,7 @@ function scene:hide(evevt)
 	local sceneGroup = self.view
 	local phase = evevt.phase
 	if(phase == "will") then
-		editprofile:removeEventListener("touch",Edit)
+		--editprofile:removeEventListener("touch",Edit)
 		back:removeEventListener("touch",goback)
 		mail:removeSelf()
 		name:removeSelf()

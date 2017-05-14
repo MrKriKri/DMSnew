@@ -4,8 +4,9 @@ local widget = require("widget")
 require("GetMeal")
 
 function gotoMenuuu(event)
-	
+	if(event.phase=="ended")then
 	composer.gotoScene("menu2")
+end
 end
 
 
@@ -48,6 +49,8 @@ function scene:hide(evevt)
 	local phase = evevt.phase
 	if(phase == "will") then
 		if not(textMeal==nil) then
+		myText6:removeEventListener("touch",gotoMenuuu)
+
         textMeal:removeSelf()
         textFood:removeSelf()
         texttime:removeSelf()

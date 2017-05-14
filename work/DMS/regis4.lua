@@ -29,7 +29,9 @@ end
 end
 
 local function showScene(event)
+	if(event.phase=="ended")then
 	composer.gotoScene("standard")
+end
 end
 
 function scene:create(event)
@@ -73,11 +75,12 @@ LogoCan = widget.newButton(
     x = cx+70, y = cy+250, 
     defaultFile = "Cancel.png" ,
     width = 119,
-    height = 40
+    height = 40,
+    onEvent = showScene
   }
 )
 	LogoCon:addEventListener("touch",regis)
-	LogoCan:addEventListener("touch",showScene)
+	--LogoCan:addEventListener("touch",showScene)
 
 	elseif(phase == "did") then
 		print("Scene #4 : show (did)")
