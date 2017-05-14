@@ -38,6 +38,8 @@ function scene:hide(evevt)
         myText1:removeEventListener("touch",gotoMenuG)
         tableView:removeSelf()
         myText6:removeSelf()
+        myText1:removeSelf()
+        myText1=nil
         tableView=nil
         myText6=nil
      	

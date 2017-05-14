@@ -81,25 +81,17 @@ function scene:show(event)
 		wTextField.inputType = "number"
 		--hTextField.align = "center"
 		wTextField.align = "center"
-		bmiText = display.newText("0.00", cx, 300, "Quark-Bold", 40)
+		bmiText = display.newText(" ", cx, 300, "Quark-Bold", 40)
 		sceneGroup:insert(titleText)
 		sceneGroup:insert(bmiText)
 		--hTextField.text = composer.getVariable("age")
 		wTextField.text = composer.getVariable("sugar")
 
-		Tick = widget.newButton(
-		   {
-		    x = cx, y = cy+150, 
-		    --onEvent = ,
-		    defaultFile = "Tick.png" ,
-		    width = 80,
-		    height = 80
-		  }
-		)
+		
 
 		myText:addEventListener("touch",gotoMenu)
 		myText1:addEventListener("touch",gotoAddtoRec)
-		Tick:addEventListener("touch",gotoCal)	
+			
 		--calculateSugar()		
 	elseif (phase == "did") then	
 		--hTextField:addEventListener("userInput", textFieldHandler)	
@@ -126,14 +118,14 @@ function scene:hide(event)
 		myText:removeSelf()
 		myText1:removeSelf()
 		bmiText:removeSelf()
-		Tick:removeSelf()
+	
 		titleText = nil
 		--titleText1 = nil
 		titleText2 = nil
 		--titleText3 = nil
 		titleText4 = nil
 		--hTextField = nil
-		Tick = nil
+		
 		wTextField = nil
 		calButton = nil
 		bmiText = nil

@@ -65,17 +65,20 @@ function scene:show(event)
 		)
 		now = datenow.year.."-"..datenow.month.."-"..datenow.day
 		CreatDataGraph(composer.getVariable("nowuser"),now,now)
-		myText = display.newText(composer.getVariable("username"),215,15,"Arial",20)
-		txtBeginfld = native.newTextField(240,400,100, 30)
-		txtEndfld = native.newTextField(75,400,100, 30)
+		myText = display.newText(composer.getVariable("username"),40,15,"Arial",20)
+		myText1 = display.newText("From",37,400,"Arial",20)
+		myText2 = display.newText("To",190,400,"Arial",20)
+		myText3 = display.newText("EX: Y-M-D = 2017-05-17",cx,427,"Arial",15)
+		txtBeginfld = native.newTextField(260,400,100, 30)
+		txtEndfld = native.newTextField(120,400,100, 30)
 
 		ShowGraph = widget.newButton(
 		   {
-		    x = cx, y = 450, 
+		    x = cx, y = 460, 
 		    --onEvent = ,
 		    defaultFile = "show.png" ,
-		    width = 120,
-		    height = 40
+		    width = 110,
+		    height = 30
 		  }
 		)
 		ShowGraph:addEventListener("touch",CreaterGraph)
@@ -98,6 +101,9 @@ function scene:hide(evevt)
 		myText:removeSelf()
 		txtBeginfld:removeSelf()
 		txtEndfld:removeSelf()
+		myText1:removeSelf()
+		myText2:removeSelf()
+		myText3:removeSelf()
 
 		if not(GraphImage==nil)then
 			scrollView:removeSelf()
@@ -106,7 +112,9 @@ function scene:hide(evevt)
 			GraphImage=nil
 		end
 
-		
+		myText1  = nil
+		myText2  = nil
+		myText3  = nil
 		ground  = nil
 		ProFile = nil
 		myText = nil
